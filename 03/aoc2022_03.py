@@ -17,7 +17,7 @@ def mupp(linestrip):
     return sum(priority(c) for c in common)
 
 
-def mopp(grouplines):
+def badge(grouplines):
     badgeset = set.intersection(*[set(line.strip()) for line in grouplines])
     if len(badgeset) != 1:
         raise Exception("Not a single common item among group members")
@@ -29,7 +29,7 @@ def partone(input):
 
 
 def parttwo(input):
-    return sum(mopp(input[3 * k : 3 * (k + 1)]) for k in range(len(input) // 3))
+    return sum(badge(input[3 * k : 3 * (k + 1)]) for k in range(len(input) // 3))
 
 
 print(partone(input))
