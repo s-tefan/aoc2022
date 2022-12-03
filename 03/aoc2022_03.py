@@ -1,6 +1,6 @@
-'''
+"""
 Advent of code 2022:03
-'''
+"""
 with open("input.txt") as f:
     input = f.readlines()
 
