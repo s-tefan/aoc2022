@@ -35,8 +35,7 @@ def parttwo():
     moves = get_moves(input1)
     for move in moves:
         crates[move[2]-1] += crates[move[1]-1][-move[0]:]
-        for k in range(move[0]):
-            crates[move[1]-1].pop()
+        del crates[move[1]-1][-move[0]:]
     return ''.join(crate[-1] for crate in crates)
 
 print(partone())
