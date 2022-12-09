@@ -27,6 +27,7 @@ def update_tail(tail, head):
         tail[k] += (1 if diff[k]>0 else -1 if diff[k]<0 else 0)
     return
 
+
 def diagram(s, n):
     for k in range(n):
         for m in range(n):
