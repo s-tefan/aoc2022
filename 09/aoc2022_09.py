@@ -45,7 +45,6 @@ def partone(input):
 
 
 def parttwo(input):
-    hpos = [0, 0]
     n = 10
     knots = [[0, 0] for k in range(n)]
     tail_visited = {tuple(knots[-1])}
