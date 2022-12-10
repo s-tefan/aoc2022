@@ -26,8 +26,12 @@ def partone(filename):
                 elif op[0] == 'noop':
                     countdown = 0
             if cycle in {20,60,100,140,180,220}:
-                print(cycle,x, cycle*x)
                 result += cycle*x
+            
+            pos = (cycle-1)%40
+            print('x' if pos in range(x-1,x+2) else '.', end='')
+            if pos == 0:
+                print()
     except StopIteration:
         print('Klar')
     return result
