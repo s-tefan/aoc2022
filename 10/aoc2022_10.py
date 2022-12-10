@@ -3,16 +3,17 @@ def read_input(filename):
         return [line.rstrip() for line in f.readlines()]
 
 def partone(filename):
-    x = 1
-    storex = False
-    cycle = 1
-    countdown = 0
+    cycle, x, countdown, value  = 0, 1, 0, 0
     program = iter(read_input(filename))
-    value = 0
     result = 0
+    crt = ''
     try:
-        while program:
+        while True:
             cycle += 1
+            pos = (cycle-1)%40
+            pix = 'x' if pos in range(x-1,x+2) else '.'
+            if cycle in {20,60,100,140,180,220}:
+                result += cycle*x
             if countdown:
                 pass
                 countdown -= 1
@@ -25,15 +26,12 @@ def partone(filename):
                     countdown = 1
                 elif op[0] == 'noop':
                     countdown = 0
-            if cycle in {20,60,100,140,180,220}:
-                result += cycle*x
+            # Add pixel at the end to catch StopIteration before
+            crt += pix + ('' if cycle%40 else '\n')
             
-            pos = (cycle-1)%40
-            print('x' if pos in range(x-1,x+2) else '.', end='')
-            if pos == 0:
-                print()
     except StopIteration:
         print('Klar')
-    return result
+    return result, crt
 
-print(partone("input.txt"))
+for result in partone("input.txt"):
+    print(result)
