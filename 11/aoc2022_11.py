@@ -61,7 +61,6 @@ with open("input.txt") as f:
     for round in range(20):
         for monkey in monkeylist:
             for monkey_number, item in monkey.inspect():
-                # print(monkey_number, item)
                 monkeylist[monkey_number].gets(item)
     mblist = sorted([monkey.inspections for monkey in monkeylist])
     monkey_business = mblist[-1] * mblist[-2]
@@ -75,10 +74,8 @@ with open("input.txt") as f:
     for round in range(10000):
         for monkey in monkeylist:
             for monkey_number, item in monkey.inspect2():
-                # print(monkey_number, item)
                 monkeylist[monkey_number].gets(item)
     mblist = [monkey.inspections for monkey in monkeylist]
-    #print(mblist)
     mblist.sort()
     monkey_business = mblist[-1] * mblist[-2]
     print(monkey_business)
