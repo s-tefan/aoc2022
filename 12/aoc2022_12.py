@@ -53,10 +53,6 @@ def visit(node, dist_dict, visited, backwards = False):
                 dist_dict[n] = d
     visited.add(node)
 
-with open("input.txt") as f:
-    rows = [line.strip() for line in f.readlines()]
-    nrows, ncols = len(rows), len(rows[0])
-    elevmap = rows
 
 def dijkstra(start, backwards = False):
     current = start
@@ -83,8 +79,20 @@ def dijkstra(start, backwards = False):
             visit(current, dist_dict, visited, backwards)
         return dist_dict[current], current
         
+with open("input.txt") as f:
+    rows = [line.strip() for line in f.readlines()]
+    nrows, ncols = len(rows), len(rows[0])
+    elevmap = rows
 
-dist, goal = dijkstra((0,0)) 
+for k, row in enumerate(rows):
+    for l, c in enumerate(row):
+        if c == 'S':
+            start = (k,l)
+            break
+print(start)
+# Bah? Ger inte rätt svar när jag fixade startpunkten?
+
+dist, goal = dijkstra(start) 
 print(dist)
 dist, goal = dijkstra(goal, backwards = True)
 print(dist)
