@@ -60,7 +60,7 @@ def partone():
 
 
 def schappa(x, y):
-    print(x * 4_000_000 + y)
+    return x * 4_000_000 + y
 
 
 def parttwo():
